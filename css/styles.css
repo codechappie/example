@@ -1,0 +1,76 @@
+h4 {
+  text-align: center;
+}
+
+.listA,
+.listB,
+.listC {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+}
+
+#palabras {
+  padding: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#palabras li {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 2vh;
+  margin-right: 1px;
+}
+
+.muestra {
+  width: 30%;
+  margin: auto;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  height: 140px;
+  width: 100%;
+  border: 3px solid silver;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box img {
+  width: 50%;
+  height: 100%;
+}
+
+.box:hover {
+  border: 3px solid #37D3F7;
+}
+
+
+/* Styles nuevos*/
+
+h4 span {
+  color: #37D3F7;
+}
+
+.muestra img {
+  width: 100px;
+  height: 100px!important;
+  margin: 0 10px;
+}
+
+@media (min-width: 600px) {
+  #palabras li {
+      width: 40%;
+  }
+}
+
+@media (min-width: 1024px) {
+  #palabras li {
+      width: 40%;
+  }
+}

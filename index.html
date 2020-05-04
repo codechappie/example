@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arca de Papel</title>
+  <!-- CSS  -->
+  <style type="text/css">
+    .svg {
+        width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .colores img {
+        width: 50px;
+        margin: 2vh;
+        border-radius: 18%;
+    }
+    
+    #contenedorpuzzle {
+        width: 80%;
+        margin: 10vh auto;
+    }
+    
+    .item img {
+        width: 250px;
+        margin: 3 20px 0;
+        float: left;
+        border: solid transparent;
+    }
+    
+    .item img:hover {
+        border: solid;
+    }
+    
+    h5 {
+        font-size: 200%;
+    }
+    
+    .img-principal {
+        margin: 5vh auto 0;
+    }
+    
+    .fila1,
+    .fila2,
+    .fila3 {
+        margin: 0 auto 2vh;
+        width: 1160px;
+        box-shadow: 0 0 5px #80808061;
+    }
+    
+    .container,
+    .content-wrapper {
+        margin: 10vh auto 0;
+    }
+    
+    .fila1 img {
+        width: 20vw;
+        margin: 0 auto;
+    }
+    
+    @media (max-width: 1200px) {
+    
+        .container,
+        .content-wrapper {
+            margin: 42px auto 0;
+        }
+    }
+    
+    #imgIzquierda li,
+    #imgDerecha li {
+        width: 276px;
+        height: 150px;
+        border: 1px solid silver;
+        position: relative;
+        /* padding: 5px 32px; */
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #imgIzquierda li:hover,
+    #imgDerecha li:hover {
+        background-color: silver;
+    }
+    
+    
+    #imgIzquierda img,
+    #imgDerecha img {
+        max-width: 90%;
+        max-height: 90%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    
+    
+    }
+    
+    .campo {
+        float: left;
+    }
+    
+    ul {
+        margin: 0;
+    }
+    
+    .a span,
+    .b span {
+        font-size: 28px;
+        text-align: center;
+        line-height: 34px;
+        font-weight: 600;
+    }
+    
+    .b span span,
+    .a span span {
+        color: #37D3F7;
+    }
+    
+    
+    h4 {
+        font-size: 1.9rem;
+        margin: 0;
+        padding: 0;
+    }
+    
+    @media(max-height: 640px) {
+    
+        #imgIzquierda li,
+        #imgDerecha li {
+            height: 110px;
+    
+        }
+    
+        .a span,
+        .b span {
+            font-size: 25px;
+            line-height: 31px;
+        }
+    }
+    </style>
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="http://plataforma.arcadepapel.net/css/materialize.css" type="text/css" rel="stylesheet"
+    media="screen,projection" />
+  <link rel="stylesheet" href="http://plataforma.arcadepapel.net/css/core.css">
+  <link rel="stylesheet" type="text/css" href="http://plataforma.arcadepapel.net/view/comunicacion/1/unidad.css">
+  <link rel="stylesheet" href="http://plataforma.arcadepapel.net/js/ui/jquery-ui.min.css">
+  <script src="http://plataforma.arcadepapel.net/js/jquery-3.4.1.min.js"></script>
+  <script src="http://plataforma.arcadepapel.net/js/ui/jquery-ui.min.js"></script>
+  <script src="http://plataforma.arcadepapel.net/js//ui/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+  <style type="text/css">
+    .ftitle {
+      font-size: 1rem;
+      padding-top: 30px;
+    }
+
+    .ftitulo span {
+      color: #0095DA !important;
+    }
+  </style>
+  <script type="text/javascript">
+    var count = 3;
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="http://plataforma.arcadepapel.net/view/comunicacion/1/0/1/css/force-lastcape.css">
+</head>
+<div style="transform: translate(0vw, -13vh);
+  color: white;" id="resolucion"></div>
+<img class="logoUnidad">
+<script>$('.logoUnidad').attr("src", "http://plataforma.arcadepapel.net/img/unidades/0.png");</script>
+
+<body>
+
+  <audio id="click" src="http://plataforma.arcadepapel.net/asset/cursor/sound/click.mp3"></audio>
+  <audio id="bien" src="http://plataforma.arcadepapel.net/view/tools/sound/bien.mp3">
+  </audio>
+  <audio id="fallo" src="http://plataforma.arcadepapel.net/view/tools/sound/fallo.mp3">
+  </audio>
+  <div id="vertical"></div>
+  <div id="contenedor">
+    <ul style="width:auto" id="slide-out" class="sidenav">
+
+
+      <center>
+        <li>
+          <a href="../../../../../" class="tooltipped " data-position="right" data-tooltip="Ir a Inicio"><i
+              class="material-icons small  icon-modulo">view_module</i>
+          </a>
+        </li>
+      </center>
+
+      <ul id="menu">
+
+        <li>
+          <div class="tooltipped " data-position="top" data-tooltip="Unidades"><i
+              class="material-icons small icon-contenido">chrome_reader_mode</i></div>
+          <ul class="box-s">
+
+          </ul>
+        </li>
+      </ul>
+      <center>
+        <li id="tool">
+          <a id="" class="tooltipped " data-position="right" data-tooltip="Herramienta de dibujo"><i
+              class="material-icons small  icon-modulo">edit</i>
+          </a>
+
+        </li>
+
+        <li>
+          <a id="next" href="#" class="tooltipped " data-position="right" data-tooltip="Siguiente"><i
+              class="material-icons small  icon-modulo">keyboard_arrow_right</i>
+          </a>
+        </li>
+      </center>
+
+      <li>
+        <a href="../../../../../php/cerrar.php" class="tooltipped" data-position="right"
+          data-tooltip="Cerrar Plataforma"><i class="material-icons small icon-contenido">power_settings_new</i>
+        </a>
+      </li>
+    </ul>
+    <div id="cargarPHP"></div>
+
+
+    <a href="#" data-target="slide-out" id="btn-flotante"
+      class="amber btn-floating btn-menu pink-text sidenav-trigger text-accent-4 tooltipped" data-tooltip="Menu"
+      data-position="right"><i class="small material-icons ">menu</i></a>
+
+    <script>
+      $(document).ready(function () {
+
+        var data = JSON.parse(localStorage.getItem("data"));
+
+        var color = localStorage.getItem("color");
+        var curso = localStorage.getItem("curso");
+        var grado = localStorage.getItem("grado");
+
+        //console.log("curso: "+curso+grado);
+        var i = 0;
+
+        var count = Object.keys(data).length;
+        //console.log(count+"undiad");
+
+        for (let index = 0; index < count; index++) {
+          $('ul.box-s').append('<li class="menu-item-p unidad-p"><div>' + data[index].nombre +
+            '</div><ul class="ul-right ul-item' + index + '"></ul></li>');
+        }
+
+        $('.unidad-p').each(function () {
+          var count2 = Object.keys(data[i].temas).length;
+          // console.log(count2+"tema");
+          for (let index = 0; index < count2; index++) {
+            // $(this).children('ul').append('<li class="menu-item-p"><div><a href="../../../../' + curso +'/'+grado+'/'+ i+'/' + (index + 1) + '">' + data[i].temas[index] + '</a></div></li>');
+
+            $(this).children('ul').append('<a href="../../../../' + curso + '/' + grado + '/' + i + '/' + (index + 1) + '"><li class="menu-item-p"><div>' + data[i].temas[index] + '</div></li></a>');
+          }
+
+
+          i++;
+          if (i == 4) {
+            $("#menu").menu({
+              classes: {
+                "ui-menu": "green"
+              }
+            });
+          }
+        });
+
+        $("#tool").click(function () {
+          $("#cargarPHP").load("../../../../../php/opentool.php")
+        });
+
+
+
+        $(".ui-state-active").css("background-color", color + "!important");
+        $(".sidenav").css("background-color", color + "!important");
+        $(".ui-widget-content .ui-state-active").css("background-color", color + "!important");
+        $(".ui-menu-item").css("background-color", color + "!important");
+        $(".Portada").css("background-color", color + "!important");
+
+
+        // Darle la posición del al Ul 
+        var cont = 0;
+
+        $("ul.ul-right").each(function () {
+          var altura_ul = ($(this).children().length) * 70;
+          var altura_ventana = $(window).height();
+          var altura_total = altura_ul + (cont * 70);
+
+          if ((altura_ventana) < altura_total) {
+
+            var excedente = altura_total - altura_ventana;
+
+            $("head").append("<style> ul.ul-right.ul-item" + cont + "{ top:-" + excedente + "px!important; } </style>");
+            // console.log("khe");
+            // $(this).addClass("salio");
+          }
+          cont++;
+
+        });
+
+      });
+    </script>
+
+  </div>
+
+  <div class="ftitle" id="ftitle"></div>
+  <!-- REMPLAZAMOS ESTE FRAGMENTO POR EL EJERCICIO CORRESPONDIENTE -->
+ 
+  <div class="container">
+    <div class="row svg">
+
+        <div class="campo" id="imgIzquierda">
+
+            <ul id="listA">
+                <li alt="paleta" class="a" id="obj1"><img src="./img/1.png"></li>
+                <li alt="pato" class="a" id="obj2"><img src="./img/2.png"></li>
+                <li alt="tomate" class="a" id="obj3"><img src="./img/3.png"></li>
+                <li alt="lata" class="a" id="obj4"><img src="./img/4.png"></li>
+            </ul>
+
+        </div>
+        <div class="campo" id="centro">
+            <canvas height="100px" width="1000px" id="micanvas"></canvas>
+        </div>
+        <div class="campo" id="imgDerecha">
+            <ul id="listB">
+
+                <li alt="paleta" class="b" id="obj6">
+                    <center><span>Paleta</span></center>
+                </li>
+                <li alt="pato" class="b" id="obj7">
+                    <center><span>Pato</span></center>
+                </li>
+                <li alt="tomate" class="b" id="obj8">
+                    <center><span>Tomate</span></center>
+                </li>
+                <li alt="lata" class="b" id="obj9">
+                    <center><span>Lata</span></center>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="row fila2">
+
+    </div>
+</div>
+  <!-- REMPLAZAMOS ESTE FRAGMENTO POR EL EJERCICIO CORRESPONDIENTE -->
+
+
+  </section>
+  <div id="modal1" style="display: none;" class="modal">
+    <div class="modal-content">
+      <h4>Respuesta correcta</h4>
+      <center>
+        <img class="materialboxed" width="80%" src="./img/respuesta.png">
+      </center>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Listo!</a>
+    </div>
+  </div>
+  <div id="ventana"></div>
+  <div id="correcto" class="modal">
+    <div class="modal-content">
+      <center>
+        <h4>Respuesta correcta <i class="material-icons">sentiment_very_satisfied</i></h4>
+      </center>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-close waves-effect waves-green btn-flat">Listo!</a>
+    </div>
+  </div>
+  <div id="incorrecto" class="modal">
+    <div class="modal-content">
+      <center>
+        <h4>Respuesta Incorrecta <i class="material-icons">sentiment_very_dissatisfied</i></h4>
+      </center>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Listo!</a>
+    </div>
+  </div>
+  <script src="http://plataforma.arcadepapel.net/js/materialize.min.js"></script>
+  <script src="http://plataforma.arcadepapel.net/js/core.js"></script>
+  <center>
+    <div class="botones">
+      <a title="Ver Respuesta" class="modal-trigger tooltipped" href="#modal1">
+        <div class="btn red pulse btn-floating fixed-action-btn tooltipped" data-position="left"
+          data-tooltip="Ver Respuesta Correcta" id="respuesta">
+          <i class="material-icons">assignment_turned_in</i></div>
+      </a>
+      <div class="btn  btn-floating  btn-small  btn-intentos tooltipped" data-position="top"
+        data-tooltip="Intentos restantes" id="intentos">3</div>
+      <div class="btnEnviar btn-small center" value="" id="boton1" onclick="">Enviar Respuesta</div>
+      <div class="btnCorregir btn-small center" value="" onclick="window.location.reload()">Reiniciar</div>
+      <a class="btn-small btnSiguiente center disabled" id="nextExercise" href="">Siguiente</a>
+    </div>
+  </center>
+
+  <script src="./js/validate.js"></script>
+
+</body>
+
+</html>
