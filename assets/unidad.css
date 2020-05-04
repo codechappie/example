@@ -1,0 +1,393 @@
+.pieza:hover {
+    cursor: grab !important;
+}
+
+
+/* //////////////////////////////ICONOS///////////////////////////////////////// */
+
+.contenedorPieza {
+    box-shadow: inset 0px 1px 3px 0px #7d7c7c;
+    /* border: #25252591 solid 2px; */
+    min-height: 190px;
+    background-color: #f2f0ff40;
+}
+
+.ui-state-active {
+    background-color: inherit !important;
+}
+
+.container,
+.content-wrapper {
+    position: fixed;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+.btn-menu {
+    position: fixed;
+    z-index: 0;
+    top: 18%;
+    left: 5%;
+    z-index: 333;
+}
+
+.btn-menu:focus {
+    background-color: transparent;
+    color: transparent;
+    box-shadow: none;
+}
+
+.btn-menu:active {}
+
+.btn-small {
+    font-weight: 700;
+}
+
+.sidenav-overlay {
+    /* background-image: url(../../../LOGO.png); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 20% auto;
+    height: 100%;
+}
+
+.sidenav {
+    position: fixed;
+    width: 7%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    height: 100%;
+    height: calc(100% + 60px);
+    height: -moz-calc(100%);
+    padding-bottom: 60px;
+    padding-top: 5%;
+    z-index: 999;
+    overflow-y: inherit!important;
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);
+    width: 240px!important;
+}
+
+.sidenav li>a>i,
+.sidenav li>a>[class^="mdi-"],
+.sidenav li>a li>a>[class*="mdi-"],
+.sidenav li>a>i.material-icons {
+    color: rgb(56, 56, 56);
+}
+
+body {
+    /* background: url(../../tools/img/marco_ejercicios.jpg) no-repeat center center fixed; */
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    width: 100%;
+}
+
+h5 {
+    font-size: 100%;
+    line-height: 110%;
+    width: 100%;
+    margin: 0% auto 0;
+    position: unset;
+}
+
+h5 span {
+    color: #0095DA !important;
+}
+
+.logoUnidad {
+    width: 6%;
+    left: 3%;
+    top: 3%;
+    position: fixed;
+}
+
+.botones {
+    padding: 0;
+    position: fixed;
+    top: 90%;
+    margin: 0% auto 0;
+    width: 100%;
+}
+
+.btnEnviar {
+    background-image: linear-gradient(to right, rgb(230, 183, 66), rgb(252, 216, 86));
+    border-radius: 10px;
+    border: solid #b50303;
+    border-width: 0 1px 2px 0;
+}
+
+.btnCorregir {
+    background-image: linear-gradient(to right, rgb(181, 31, 31), rgb(255, 0, 0));
+    border-radius: 10px;
+    border: solid #b50303;
+    border-width: 0 1px 2px 0;
+}
+
+.btnSiguiente {
+    background-image: linear-gradient(to right, rgb(1, 152, 21), rgb(166, 208, 1));
+    border-radius: 10px;
+    border: solid #017d1e;
+    border-width: 0 1px 2px 0;
+}
+
+.btn-intentos {
+    background-image: linear-gradient(to right, rgb(66, 129, 230), rgb(86, 175, 252));
+}
+
+.btnSiguiente.disabled {
+    pointer-events: none;
+    background-image: linear-gradient(to right, rgba(1, 152, 21, 0), rgba(166, 208, 1, 0));
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #fff !important;
+    cursor: default;
+    box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, 0.14);
+    border: solid transparent;
+    border-width: 0 1px 2px 0;
+}
+
+.fixed-action-btn {
+    position: fixed;
+    right: 63px;
+    bottom: 73px;
+    margin-bottom: 0;
+    z-index: 997;
+}
+
+#respuesta {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    h5 {
+        font-size: 200%;
+        line-height: 110%;
+        width: 100%;
+        margin: 0% auto 0;
+        position: unset;
+    }
+}
+
+@media (max-width: 1199px) {
+    h5 {
+        font-size: 150%;
+        line-height: 110%;
+        width: 100%;
+        margin: 0% auto 0;
+        position: absolute;
+    }
+    .sidenav {
+        width: 10%;
+    }
+}
+
+@media (max-width: 801px) {
+    h5 {
+        font-size: 100%;
+        line-height: 110%;
+        width: 100%;
+        margin: 3% auto 0;
+        position: absolute;
+    }
+    .sidenav {
+        width: 10%;
+    }
+}
+
+@media (max-width: 520px) {
+    h5 {
+        font-size: 80%;
+        line-height: 110%;
+        width: 250px;
+        margin: 2% 18% 0;
+        position: absolute;
+    }
+    .sidenav {
+        width: 28%;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .logoUnidad {
+        width: 10%;
+        left: 3%;
+        top: 3%;
+        position: fixed;
+    }
+    .botones {
+        padding: 0;
+        position: fixed;
+        top: 90%;
+        margin: 0% auto 0;
+        width: 100%;
+    }
+    .btn-small {
+        letter-spacing: -0.5px;
+        padding: 0 9px;
+        font-weight: 400;
+    }
+    .btn-menu {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width:700px) and (orientation:landscape) {
+    .botones {
+        padding: 0;
+        position: fixed;
+        top: 90%;
+        margin: 0% auto 0;
+        width: 100%;
+    }
+    .btn-intentos {
+        pointer-events: none;
+        position: absolute;
+        margin: -1% 0% 6% -8%;
+    }
+}
+
+@media only screen and (max-width:768px) and (orientation:landscape) {
+    .container,
+    .content-wrapper {
+        margin: -150px auto;
+        transform: scale(0.4);
+    }
+    /* default iPad screens */
+    h5 {
+        font-size: 100%;
+        line-height: 110%;
+        width: 100%;
+        margin: -65px auto 0;
+        position: absolute;
+    }
+}
+
+#incorrecto {
+    background-color: #F44336;
+    color: white;
+}
+
+#correcto {
+    background-color: #98cb03;
+    color: white;
+}
+
+.Portada {
+    /* background-color: rgba(255, 177, 7, 0.95) !important; */
+}
+
+
+/*
+@media only screen and (max-height:768px){
+
+        #ventana{
+            transform: scale(0.8);
+    margin-top: -45px;
+        }
+        .botones {
+
+    transform: translate(0px, 90vh);
+}
+    }*/
+
+
+/*******************************************/
+
+.green {
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    border: none!important;
+    background-color: inherit!important;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-menu-item {
+    border: none!important;
+    /* background-color: #f8ae0dc7!important; */
+    font-weight: bold!important;
+    color: white!important;
+}
+
+.ui-menu .ui-state-active {
+    margin: 0!important;
+    color: white!important;
+}
+
+.menu-item-p {
+    width: 300px;
+    height: 70px;
+}
+
+.sidenav li>a {
+    display: flex!important;
+    justify-content: center;
+    margin-top: 32px;
+    color: white!important;
+}
+
+.sidenav li>a>i {
+    width: auto!important;
+    margin-left: 21px!important;
+    color: white!important;
+}
+
+ul li.menu-item-p {
+    border-bottom: 1px solid white !important;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 15px;
+    color: white!important;
+    text-align: left;
+}
+
+ul.box-s {
+    box-shadow: grey 0px 0px 9px inset;
+    top: 0px!important;
+}
+
+.sidenav li {
+    line-height: 20px;
+}
+
+span.ui-menu-icon {
+    color: white!important;
+}
+
+ul li.menu-item-p:hover {
+    transform: scale(1.02);
+    background-color: inherit!important;
+    box-shadow: 0px 2px 2px #0000003d;
+    filter: brightness(1.2);
+}
+
+.ui-menu .ui-menu-item-wrapper {
+    min-width: 100%;
+}
+
+ul.ul-right {
+    top: 0px!important;
+    left: 297px!important;
+}
+
+ul.ul-right.salio {
+    top: -300px!important;
+}
+
+ul li.menu-item-p div a {
+    color: white!important;
+}
+
+
+/*********************************************/

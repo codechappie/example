@@ -1,0 +1,17 @@
+.exercises-container{
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background: rgb(215, 215, 255);
+}
+
+
+/*GENERAL*/
+.ftitle {
+    font-size: 1rem;
+    padding-top: 30px;
+}
+
+.ftitulo span {
+    color: #0095DA !important;
+}

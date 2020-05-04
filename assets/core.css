@@ -1,0 +1,37 @@
+/**? Estilos Abecedario */
+
+#abecedario, #numeros {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+#abecedario {
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+}
+#numeros {
+    grid-template-columns: auto auto auto auto auto;
+}
+.letras {
+    text-transform: capitalize;
+    font-size: 25px;
+    position: relative;
+    /* float:left; */
+    margin-right: 2px;
+    margin-top: 2px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background:#848884;*/
+   /* border: 2px solid #37D3F7;*/
+    transition: all .2s;
+}
+
+.letras:hover {
+    cursor: pointer;
+    background: #B6ECFF;
+}
+.pieza:hover {
+    box-shadow: 2px 3px 8px 0px grey;
+}
